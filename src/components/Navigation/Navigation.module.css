@@ -1,0 +1,19 @@
+.container{
+    border-bottom: solid 1px black;
+    padding: 20px;
+}
+
+.navLink{
+    color: black;
+    font-size: 25px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.avctiveNavLink{
+ color: rgb(21, 181, 255);
+ text-shadow: 1px 1px 2px #fff, 0 0 10px rgb(9, 239, 255);
+ font-size: 25px;
+ font-weight: 700;
+}

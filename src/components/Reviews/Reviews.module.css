@@ -1,0 +1,25 @@
+a {
+ font-family: 'Dancing Script';
+}
+
+.list {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.item {
+  padding: 20px 0;
+  font-weight: 300;
+  text-align: center;
+  list-style: none;
+  font-family: 'Dancing Script';
+}
+
+.authorName {
+  font-family: 'Dancing Script';
+  font-weight: bold;
+}
+
+.content {
+  text-align: left;
+}

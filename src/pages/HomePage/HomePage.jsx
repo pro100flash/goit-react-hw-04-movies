@@ -5,6 +5,8 @@ import { onErrorToast } from "../../components/OnToastError";
 import Button from "../../components/Button/Button";
 import MoviesList from "../../components/MovieList/MovieList";
 
+import s from '../../pages/HomePage/HomePage.module.css'
+
 function HomePage() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
@@ -31,7 +33,7 @@ function HomePage() {
 
   return (
     <div>
-      <h2>Trending today</h2>
+      <h2 className={s.Title}>Trending today</h2>
 
       {movies && <MoviesList movies={movies} location={location} />}
 

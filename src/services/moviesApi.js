@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 
-const apiKey = '37d52a433852bd404fa2b2ce84bfc184';
+const apiKey = "fe3a712f0c42920a8ef2167b87d0f769";
 
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+axios.defaults.baseURL = "https://api.themoviedb.org/3";
 axios.defaults.params = { api_key: apiKey };
 
 const fetchTrendingMovies = async (page = 1) => {
@@ -12,16 +12,16 @@ const fetchTrendingMovies = async (page = 1) => {
 
 const fetchMovies = async (query, page = 1) => {
   const { data } = await axios.get(
-    `/search/movie?language=en-US&page=${page}&include_adult=false&query=${query}`,
+    `/search/movie?language=en-US&page=${page}&include_adult=false&query=${query}`
   );
   return data;
 };
 
-const fetchMovieDetail = async movieID => {
+const fetchMovieDetail = async (movieID) => {
   try {
     const response = await axios.get(`/movie/${movieID}`);
     if (response.status === 200) {
-      console.log('result', response.status);
+      console.log("result", response.status);
       return response.data;
     }
   } catch (error) {
@@ -29,12 +29,12 @@ const fetchMovieDetail = async movieID => {
   }
 };
 
-const fetchMovieCredits = async movieId => {
+const fetchMovieCredits = async (movieId) => {
   const { data } = await axios.get(`/movie/${movieId}/credits`);
   return data;
 };
 
-const fetchMovieReviews = async movieId => {
+const fetchMovieReviews = async (movieId) => {
   const { data } = await axios.get(`/movie/${movieId}/reviews`);
   return data;
 };

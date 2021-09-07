@@ -1,19 +1,17 @@
-.container{
-    border-bottom: solid 1px black;
-    padding: 20px;
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px;
+  font-weight: 500;
+  font-size: 23px;
+  color: black;
 }
 
-.navLink{
-    color: black;
-    font-size: 25px;
-    font-weight: 500;
-    text-decoration: none;
-    padding: 20px;
+.activeLink {
+  color: #15b5ff;
+  text-shadow: 1px 1px 2px #fff, 0 0 10px #09efff;
+  font-size: 25px;
+  font-weight: 700;
+  
 }
 
-.avctiveNavLink{
- color: rgb(21, 181, 255);
- text-shadow: 1px 1px 2px #fff, 0 0 10px rgb(9, 239, 255);
- font-size: 25px;
- font-weight: 700;
-}

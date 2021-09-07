@@ -1,53 +1,47 @@
-import { lazy, Suspense } from "react";
-import { Switch, Route } from "react-router";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "./App.css";
-import AppBar from "./components/AppBar/AppBar";
-import Container from "./components/Container/Container";
-import { GalleryLoader } from "./components/Loader/Loader";
-const HomePage = lazy(() =>
-  import("./pages/HomePage" /* webpackChunkName: "home-page" */)
+import { Suspense, lazy } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import AppBar from './components/AppBar';
+import Loader from './components/Loader';
+import Container from './components/Container';
+
+const HomeView = lazy(() =>
+  import('./views/HomeView' /* webpackChunkName: "homeView" */),
 );
-const MovieDetailsPage = lazy(() =>
+
+const MoviesView = lazy(() =>
+  import('./views/MoviesView' /* webpackChunkName: "moviesView" */),
+);
+
+const MoviesDetailsView = lazy(() =>
   import(
-    "./pages/MovieDetailsPage" /* webpackChunkName: "movie-details-page" */
-  )
-);
-const MoviesPage = lazy(() =>
-  import("./pages/MoviesPage" /* webpackChunkName: "movies -page" */)
-);
-const NoteFoundPage = lazy(() =>
-  import("./pages/NoteFoundPage" /* webpackChunkName: "not -found-view" */)
+    './views/MoviesDetailsView' /* webpackChunkName: "MoviesDetailsView" */
+  ),
 );
 
 function App() {
   return (
     <Container>
-      <ToastContainer />
       <AppBar />
-      <Suspense
-        fallback={
-          <h1>
-            <GalleryLoader />
-          </h1>
-        }
-      >
+      <Suspense fallback={<Loader />}>
         <Switch>
           <Route path="/" exact>
-            <HomePage />
+            <HomeView />
           </Route>
+
           <Route path="/movies" exact>
-            <MoviesPage />
+            <MoviesView />
           </Route>
+
           <Route path="/movies/:movieId">
-            <MovieDetailsPage />
-          </Route>
-          <Route>
-            <NoteFoundPage />
+            <MoviesDetailsView />
           </Route>
         </Switch>
       </Suspense>
+      <ToastContainer autoClose={2000} />
     </Container>
   );
 }
